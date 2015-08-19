@@ -69,5 +69,6 @@ test: all
 	make -C $(LIBFT_DIR)
 	gcc $(CFLAGS) -L./ -lftlst -L$(LIBFT_DIR) -lft -o test test_main.c
 	./test
+	rm -f test
 
 re: fclean all
