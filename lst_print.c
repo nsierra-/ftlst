@@ -22,11 +22,11 @@ static void				print_size(t_lst *lst)
 
 void					lst_print(t_lst *lst, void (*print_f)(void *), int mode)
 {
-	t_lstelem			*cursor;
+	t_node				*cursor;
 	size_t				i;
 	size_t				lsize;
 
-	cursor = lst_elem_front(lst);
+	cursor = lst_node_front(lst);
 	i = 0;
 	lsize = lst_get_size(lst);
 	while (i++ < lsize)

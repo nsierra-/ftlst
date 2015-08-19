@@ -11,19 +11,19 @@
 /* ************************************************************************** */
 
 #include "ftlst.h"
-#include "ftlst_elem.h"
+#include "ftlst_node.h"
 
 void					*lst_remove(t_lst *lst, size_t pos)
 {
-	t_lstelem			*cursor;
+	t_node				*cursor;
 
 	if (pos >= lst_get_size(lst))
 		return (0);
-	cursor = lst_elem_at(lst, pos);
+	cursor = lst_node_at(lst, pos);
 	if (pos == 0)
 		lst->first = cursor->next;
-	if (lst_elem_front(lst) == lst_elem_back(lst))
+	if (lst_node_front(lst) == lst_node_back(lst))
 		lst->first = NULL;
 	--lst->size;
-	return (elem_destroy(&cursor));
+	return (node_destroy(&cursor));
 }

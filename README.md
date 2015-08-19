@@ -12,7 +12,7 @@ gcc yourprojectfiles -L./ftlst -lftlst
 
 # Usage
 See `ftlst.h` for full documentation.
-`ftlst_elem.h` is meant to be used only by `ftlst`. As `t_lstelem` is defined inside `ftlst.h`, you're able to write all the routines you want. `ftlst` uses the implementations linked with `ftlst_elem.h` to deal internally with its elements, but of course do as you want.
+`ftlst_node.h` is meant to be used only by `ftlst`. As `t_node` is defined inside `ftlst.h`, you're able to write all the routines you want. `ftlst` uses the implementations linked with `ftlst_node.h` to deal internally with its nodeents, but of course do as you want.
 
 A simple use case :
 ```c
@@ -37,7 +37,7 @@ int             cmp(void *d1, void *d2)
 int             main(void)
 {
     t_lst       *lst;
-    t_lstelem   *cursor;
+    t_node   *cursor;
     t_lstiter   it;
     char        *foo = strdup("foo");
     char        *bar = strdup("bar");
@@ -61,8 +61,8 @@ int             main(void)
         puts(it.data);
 
     /* MODIFY LIST */
-    lst_swap(lst, 1, 2);            /* Swapping second ("baz") and third ("bar") element */
-    lst_remove(lst, 1);             /* Removing second element ("bar") */
+    lst_swap(lst, 1, 2);            /* Swapping second ("baz") and third ("bar") nodeent */
+    lst_remove(lst, 1);             /* Removing second nodeent ("bar") */
 
     lst_print(lst, print_lst, 1);   /* Debug print (order is "foo, baz") */
     lst_bubble_sort(lst, cmp);      /* Bubble-sorting the list using cmp */

@@ -12,18 +12,18 @@
 
 NAME =		libftlst.a
 
-SRC =		elem_destroy.c \
-			elem_insert_between.c \
-			elem_swap.c \
+SRC =		node_destroy.c \
+			node_insert_between.c \
+			node_swap.c \
 			lst_bubble_sort.c \
 			lst_clear.c \
 			lst_data_at.c \
 			lst_data_back.c \
 			lst_data_front.c \
 			lst_destroy.c \
-			lst_elem_at.c \
-			lst_elem_back.c \
-			lst_elem_front.c \
+			lst_node_at.c \
+			lst_node_back.c \
+			lst_node_front.c \
 			lst_get_size.c \
 			lst_insert.c \
 			lst_is_empty.c \
@@ -36,9 +36,9 @@ SRC =		elem_destroy.c \
 			lst_swap.c \
 			lst_iterator_next.c \
 			lst_change_first_by_pos.c \
-			lst_change_first_by_elem.c \
+			lst_change_first_by_node.c \
 			new_lst.c \
-			new_lstelem.c \
+			new_node.c \
 			new_lstiter.c \
 			init_iter.c \
 			lst_index_of.c
@@ -46,7 +46,7 @@ SRC =		elem_destroy.c \
 
 OBJ = 		$(SRC:.c=.o)
 
-LIBFT_DIR =	../libft
+LIBFT_DIR =	./libft
 
 CC = 		gcc
 

@@ -11,19 +11,19 @@
 /* ************************************************************************** */
 
 #include "ftlst.h"
-#include "ftlst_elem.h"
+#include "ftlst_node.h"
 
 void					*lst_pop_front(t_lst *lst)
 {
-	t_lstelem			*first;
+	t_node				*first;
 
 	if (lst->first == NULL)
 		return (NULL);
-	first = lst_elem_front(lst);
-	if (first == lst_elem_back(lst))
+	first = lst_node_front(lst);
+	if (first == lst_node_back(lst))
 		lst->first = NULL;
 	else
 		lst->first = first->next;
 	--lst->size;
-	return (elem_destroy(&first));
+	return (node_destroy(&first));
 }

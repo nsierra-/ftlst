@@ -17,8 +17,8 @@
 void	init_iter(t_lstiter *it, t_lst *l, t_lst_direction d)
 {
 	it->pos = d == increasing ? SIZE_MAX : lst_get_size(l);
-	it->current = d == increasing ? lst_elem_back(l) : lst_elem_front(l);
-	it->end = d == increasing ? lst_elem_front(l) : lst_elem_back(l);
+	it->current = d == increasing ? lst_node_back(l) : lst_node_front(l);
+	it->end = d == increasing ? lst_node_front(l) : lst_node_back(l);
 	it->dir = d;
 	it->flag = 0;
 }

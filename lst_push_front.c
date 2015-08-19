@@ -11,22 +11,22 @@
 /* ************************************************************************** */
 
 #include "ftlst.h"
-#include "ftlst_elem.h"
+#include "ftlst_node.h"
 
 int						lst_push_front(t_lst *lst, void *data)
 {
-	t_lstelem			*new_elem;
+	t_node				*node;
 
-	if (!(new_elem = new_lstelem(data)))
+	if (!(node = new_node(data)))
 		return (0);
 	else if (lst_is_empty(lst))
 	{
-		new_elem->prev = new_elem;
-		new_elem->next = new_elem;
-		lst->first = new_elem;
+		node->prev = node;
+		node->next = node;
+		lst->first = node;
 		return (++lst->size);
 	}
-	elem_insert_between(new_elem, lst_elem_back(lst), lst_elem_front(lst));
-	lst->first = new_elem;
+	node_insert_between(node, lst_node_back(lst), lst_node_front(lst));
+	lst->first = node;
 	return (++lst->size);
 }

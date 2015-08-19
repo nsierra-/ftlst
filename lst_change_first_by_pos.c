@@ -14,9 +14,9 @@
 
 void			lst_change_first_by_pos(t_lst *lst, size_t pos)
 {
-	t_lstelem	*elem;
+	t_node		*node;
 
-	if (!(elem = lst_elem_at(lst, pos)))
+	if (!(node = lst_node_at(lst, pos)))
 		return ;
-	lst_change_first_by_elem(lst, elem);
+	lst_change_first_by_node(lst, node);
 }

@@ -42,8 +42,8 @@ int             main(void)
         puts(it.data);
 
     /* MODIFY LIST */
-    lst_swap(lst, 1, 2);            /* Swapping second ("baz") and third ("bar") element */
-    lst_remove(lst, 1);             /* Removing second element ("bar") */
+    lst_swap(lst, 1, 2);            /* Swapping second ("baz") and third ("bar") nodeent */
+    lst_remove(lst, 1);             /* Removing second nodeent ("bar") */
 
     lst_print(lst, print_lst, 1);   /* Debug print (order is "foo, baz") */
     lst_bubble_sort(lst, cmp);      /* Bubble-sorting the list using cmp */

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftlst_elem.h                                       :+:      :+:    :+:   */
+/*   ftlst_node.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,31 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTLST_ELEM_H
-# define FTLST_ELEM_H
+#ifndef FTLST_node_H
+# define FTLST_node_H
 
 # include "ftlst.h"
 
 typedef void	*t_supernorm;
 /*
-** Creates a new list elem. Sets all pointers to NULL.
+** Creates a new list node. Sets all pointers to NULL.
 */
-t_lstelem		*new_lstelem(void *data);
+t_node			*new_node(void *data);
 /*
 ** Inserts to_insert between before and after, editing pointers
 ** accordingly.
 */
-void			elem_insert_between(
-					t_lstelem *to_insert,
-					t_lstelem *before,
-					t_lstelem *after);
+void			node_insert_between(
+					t_node *to_insert,
+					t_node *before,
+					t_node *after);
 /*
-** Swaps data of elem1 and elem2.
+** Swaps data of node1 and node2.
 */
-void			elem_swap(t_lstelem *elem1, t_lstelem *elem2);
+void			node_swap(t_node *node1, t_node *node2);
 /*
-** Destroys elem, setting pointers to it's neighbours elements correctly.
+** Destroys node, setting pointers to it's neighbours nodeents correctly.
 */
-void			*elem_destroy(t_lstelem **elem);
+void			*node_destroy(t_node **node);
 
 #endif

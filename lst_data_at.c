@@ -14,9 +14,9 @@
 
 void			*lst_data_at(t_lst *lst, size_t pos)
 {
-	t_lstelem	*e;
+	t_node		*e;
 
-	e = lst_elem_at(lst, pos);
+	e = lst_node_at(lst, pos);
 	if (e)
 		return (e->data);
 	return (NULL);

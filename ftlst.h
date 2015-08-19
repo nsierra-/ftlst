@@ -22,19 +22,19 @@ typedef enum			e_lst_direction
 	end
 }						t_lst_direction;
 
-typedef struct			s_lstelem
+typedef struct			s_node
 {
 	void				*data;
-	struct s_lstelem	*prev;
-	struct s_lstelem	*next;
-}						t_lstelem;
+	struct s_node		*prev;
+	struct s_node		*next;
+}						t_node;
 
 typedef struct			s_lstiter
 {
 	void				*data;
-	t_lstelem			*current;
+	t_node				*current;
 	size_t				pos;
-	t_lstelem			*end;
+	t_node				*end;
 	t_lst_direction		dir;
 	int					flag;
 
@@ -43,7 +43,7 @@ typedef struct			s_lstiter
 typedef struct			s_lst
 {
 	size_t				size;
-	t_lstelem			*first;
+	t_node				*first;
 }						t_lst;
 /*
 ** Creates an empty list.
@@ -62,23 +62,23 @@ int						lst_is_empty(t_lst *lst);
 */
 size_t					lst_index_of(t_lst *l, void *data);
 /*
-** Returns a pointer to the list element at pos if pos is valid. Otherwise,
+** Returns a pointer to the list nodeent at pos if pos is valid. Otherwise,
 ** returns NULL.
 */
-t_lstelem				*lst_elem_at(t_lst *lst, size_t pos);
+t_node					*lst_node_at(t_lst *lst, size_t pos);
 /*
 ** Returns a pointer to the data at pos if pos is valid. Otherwise,
 ** returns NULL.
 */
 void					*lst_data_at(t_lst *lst, size_t pos);
 /*
-** Returns first element or NULL if list is empty.
+** Returns first nodeent or NULL if list is empty.
 */
-t_lstelem				*lst_elem_front(t_lst *lst);
+t_node					*lst_node_front(t_lst *lst);
 /*
-** Returns last element or NULL if list is empty.
+** Returns last nodeent or NULL if list is empty.
 */
-t_lstelem				*lst_elem_back(t_lst *lst);
+t_node					*lst_node_back(t_lst *lst);
 /*
 ** Returns first data or NULL if list is empty.
 */
@@ -98,12 +98,12 @@ int						lst_push_back(t_lst *lst, void *data);
 */
 int						lst_push_front(t_lst *lst, void *data);
 /*
-** Deletes last element and returns a pointer to its data (in case you must
+** Deletes last nodeent and returns a pointer to its data (in case you must
 ** free it).
 */
 void					*lst_pop_back(t_lst *lst);
 /*
-** Deletes first element and returns a pointer to its data (in case you must
+** Deletes first nodeent and returns a pointer to its data (in case you must
 ** free it).
 */
 void					*lst_pop_front(t_lst *lst);
@@ -118,16 +118,16 @@ int						lst_insert(t_lst *lst, void *data, size_t pos);
 */
 void					lst_change_first_by_pos(t_lst *lst, size_t pos);
 /*
-** Changes the head of the list given an element.
+** Changes the head of the list given an nodeent.
 */
-void					lst_change_first_by_elem(t_lst *lst, t_lstelem *elem);
+void					lst_change_first_by_node(t_lst *lst, t_node *node);
 /*
-** Deletes element at pos if pos is valid and returns a pointer to the data
+** Deletes nodeent at pos if pos is valid and returns a pointer to the data
 ** (in case you must free it).
 */
 void					*lst_remove(t_lst *lst, size_t pos);
 /*
-** Swaps data of elements at pos1 and pos2 if both are valid.
+** Swaps data of nodeents at pos1 and pos2 if both are valid.
 */
 void					lst_swap(t_lst *lst, size_t pos1, size_t pos2);
 /*
@@ -140,11 +140,11 @@ void					lst_bubble_sort(t_lst *lst, int (*f)(void *, void *));
 */
 void					lst_print(t_lst *lst, void (*print_f)(void *), int m);
 /*
-** Clears the whole list (frees all elements but no data).
+** Clears the whole list (frees all nodeents but no data).
 */
 void					lst_clear(t_lst *lst);
 /*
-** Frees all elements, all data using f, the list in itself and sets
+** Frees all nodeents, all data using f, the list in itself and sets
 ** its pointer to NULL. Pass NULL as f if you do not want to free the data.
 */
 void					lst_destroy(t_lst **lst, void (*f)(void *));

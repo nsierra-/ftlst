@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_lstelem.c                                      :+:      :+:    :+:   */
+/*   lst_change_first_by_node.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/12 03:56:18 by nsierra-          #+#    #+#             */
-/*   Updated: 2015/04/12 03:56:28 by nsierra-         ###   ########.fr       */
+/*   Created: 2015/04/21 00:41:33 by nsierra-          #+#    #+#             */
+/*   Updated: 2015/04/21 00:41:34 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftlst.h"
-#include <stdlib.h>
 
-t_lstelem		*new_lstelem(void *data)
+void			lst_change_first_by_node(t_lst *lst, t_node *node)
 {
-	t_lstelem	*new_elem;
-
-	if (!(new_elem = malloc(sizeof(t_lstelem))))
-		return (NULL);
-	new_elem->data = data;
-	new_elem->next = NULL;
-	new_elem->prev = NULL;
-	return (new_elem);
+	if (node)
+		lst->first = node;
 }

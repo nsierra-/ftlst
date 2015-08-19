@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_change_first_by_elem.c                         :+:      :+:    :+:   */
+/*   lst_node_back.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nsierra- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/04/21 00:41:33 by nsierra-          #+#    #+#             */
-/*   Updated: 2015/04/21 00:41:34 by nsierra-         ###   ########.fr       */
+/*   Created: 2015/04/12 03:55:52 by nsierra-          #+#    #+#             */
+/*   Updated: 2015/04/12 03:56:28 by nsierra-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftlst.h"
 
-void			lst_change_first_by_elem(t_lst *lst, t_lstelem *elem)
+t_node					*lst_node_back(t_lst *lst)
 {
-	if (elem)
-		lst->first = elem;
+	return (lst_is_empty(lst) ? NULL : lst->first->prev);
 }
