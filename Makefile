@@ -46,9 +46,11 @@ SRC =		elem_destroy.c \
 
 OBJ = 		$(SRC:.c=.o)
 
+LIBFT_DIR =	../libft
+
 CC = 		gcc
 
-CFLAGS = 	-pedantic -Wall -Wextra -Werror -g3 -I../libft
+CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I./libft
 
 all: $(NAME)
 
@@ -62,5 +64,10 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+test: all
+	make -C $(LIBFT_DIR)
+	gcc $(CFLAGS) -L./ -lftlst -L$(LIBFT_DIR) -lft -o test test_main.c
+	./test
 
 re: fclean all
