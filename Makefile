@@ -46,7 +46,7 @@ SRC =		node_destroy.c \
 
 OBJ = 		$(SRC:.c=.o)
 
-LIBFT_DIR =	./libft
+LIBFT_DIR =	../libft
 
 CC = 		gcc
 
