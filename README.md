@@ -12,9 +12,9 @@ gcc yourprojectfiles -L./ftlst -lftlst
 
 # Usage
 See `ftlst.h` for full documentation.
-`ftlst_node.h` is meant to be used only by `ftlst`. As `t_node` is defined inside `ftlst.h`, you're able to write all the routines you want. `ftlst` uses the implementations linked with `ftlst_node.h` to deal internally with its nodeents, but of course do as you want.
 
-A simple use case :
+A simple use case  (to run this test type ```make test```):
+
 ```c
 #include "ftlst.h"
 #include <stdio.h>
@@ -26,7 +26,7 @@ void            print_lst(void *d1)
     char        *d1s;
 
     d1s = (char *)d1;
-    printf("%s", d1);
+    printf("%s\n", d1s);
 }
 
 int             cmp(void *d1, void *d2)
@@ -37,7 +37,6 @@ int             cmp(void *d1, void *d2)
 int             main(void)
 {
     t_lst       *lst;
-    t_node   *cursor;
     t_lstiter   it;
     char        *foo = strdup("foo");
     char        *bar = strdup("bar");
