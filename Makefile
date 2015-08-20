@@ -50,12 +50,12 @@ LIBFT_DIR =	../libft
 
 CC = 		gcc
 
-CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I./libft
+CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I$(LIBFT_DIR)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -I . -I../libft -c $(SRC)
+	$(CC) $(CFLAGS) -I . -I$(LIBFT_DIR) -c $(SRC)
 	ar rc  $(NAME) $(OBJ)
 	ranlib $(NAME)
 
