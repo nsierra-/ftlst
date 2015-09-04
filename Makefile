@@ -47,14 +47,16 @@ SRC =		node_destroy.c \
 
 OBJ = 		$(SRC:.c=.o)
 
+LIBFT_DIR =	../libft
+
 CC = 		gcc
 
-CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2
+CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I$(LIBFT_DIR)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -I. -c $(SRC)
+	$(CC) $(CFLAGS) -I . -I$(LIBFT_DIR) -c $(SRC)
 	ar rc  $(NAME) $(OBJ)
 	ranlib $(NAME)
 
