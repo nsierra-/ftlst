@@ -10,9 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "ftlst.h"
 
-static void	has_ended_or_skip(t_lstiter *it)
+static void		has_ended_or_skip(t_lstiter *it)
 {
 	if (!it->flag)
 		it->flag = 1;
@@ -25,10 +26,17 @@ static void	has_ended_or_skip(t_lstiter *it)
 	}
 }
 
-int			lst_iterator_next(t_lstiter *it)
+int				lst_iterator_next(t_lstiter *it)
 {
+	static int	last_ret = 1;
+
+	if (it->flag == 2)
+	{
+		it->flag = 1;
+		return (last_ret);
+	}
 	if (!it->current && (it->flag = 1))
-	return (0);
+		return ((last_ret = 0));
 	it->current = it->dir == increasing ? it->current->next : it->current->prev;
 	it->data = it->current->data;
 	if (it->current == it->end)
@@ -37,5 +45,5 @@ int			lst_iterator_next(t_lstiter *it)
 		++it->pos;
 	else
 		--it->pos;
-	return (it->dir == end ? 0 : 1);
+	return ((last_ret = it->dir == end ? 0 : 1));
 }

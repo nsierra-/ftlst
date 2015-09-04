@@ -11,13 +11,12 @@
 /* ************************************************************************** */
 
 #include "ftlst.h"
-#include "libft.h"
+#include <stdio.h>
 
 static void				print_size(t_lst *lst)
 {
-	ft_putstr("Total size : ");
-	ft_putnbr((int)lst_get_size(lst));
-	ft_putendl("");
+	printf("Total size : ");
+	printf("%d\n", (int)lst_get_size(lst));
 }
 
 void					lst_print(t_lst *lst, void (*print_f)(void *), int mode)
@@ -33,16 +32,16 @@ void					lst_print(t_lst *lst, void (*print_f)(void *), int mode)
 	{
 		if (mode == 1)
 		{
-			ft_putendl("----------");
-			ft_putstr("Position : ");
-			ft_putnbr((int)(i - 1));
-			ft_putstr("\nData : ");
+			puts("----------");
+			printf("Position : ");
+			printf("%d\n", (int)(i - 1));
+			printf("Data : ");
 		}
 		print_f(cursor->data);
 		if (mode == 0)
-			ft_putendl("");
+			puts("");
 		if (mode == 1)
-			ft_putendl("\n----------");
+			puts("\n----------");
 		cursor = cursor->next;
 	}
 	if (mode == 1)

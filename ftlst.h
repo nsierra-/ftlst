@@ -29,6 +29,12 @@ typedef struct			s_node
 	struct s_node		*next;
 }						t_node;
 
+typedef struct			s_lst
+{
+	size_t				size;
+	t_node				*first;
+}						t_lst;
+
 typedef struct			s_lstiter
 {
 	void				*data;
@@ -36,15 +42,10 @@ typedef struct			s_lstiter
 	size_t				pos;
 	t_node				*end;
 	t_lst_direction		dir;
+	t_lst				*lst;
 	int					flag;
-
 }						t_lstiter;
 
-typedef struct			s_lst
-{
-	size_t				size;
-	t_node				*first;
-}						t_lst;
 /*
 ** Creates an empty list.
 */
@@ -158,5 +159,6 @@ void					init_iter(t_lstiter *it, t_lst *l, t_lst_direction d);
 ** Returns 0 if iteration is over, 1 othewise.
 */
 int						lst_iterator_next(t_lstiter *it);
+void					*lst_remove_iterator_node(t_lstiter *it);
 
 #endif

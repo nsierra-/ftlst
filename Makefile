@@ -41,21 +41,20 @@ SRC =		node_destroy.c \
 			new_node.c \
 			new_lstiter.c \
 			init_iter.c \
-			lst_index_of.c
+			lst_index_of.c \
+			lst_remove_iterator_node.c
 
 
 OBJ = 		$(SRC:.c=.o)
 
-LIBFT_DIR =	./libft
-
 CC = 		gcc
 
-CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I./libft
+CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -I . -I../libft -c $(SRC)
+	$(CC) $(CFLAGS) -I. -c $(SRC)
 	ar rc  $(NAME) $(OBJ)
 	ranlib $(NAME)
 
@@ -66,8 +65,7 @@ fclean: clean
 	rm -f $(NAME)
 
 test: all
-	make -C $(LIBFT_DIR)
-	gcc $(CFLAGS) -L./ -lftlst -L$(LIBFT_DIR) -lft -o test test_main.c
+	gcc $(CFLAGS) -L./ -lftlst -o test test_main.c
 	./test
 	rm -f test
 

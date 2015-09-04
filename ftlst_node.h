@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTLST_node_H
-# define FTLST_node_H
+#ifndef FTLST_NODE_H
+# define FTLST_NODE_H
 
 # include "ftlst.h"
 
