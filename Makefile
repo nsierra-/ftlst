@@ -41,7 +41,8 @@ SRC =		node_destroy.c \
 			new_node.c \
 			new_lstiter.c \
 			init_iter.c \
-			lst_index_of.c
+			lst_index_of.c \
+			lst_remove_iterator_node.c
 
 
 OBJ = 		$(SRC:.c=.o)

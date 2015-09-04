@@ -21,4 +21,5 @@ void	init_iter(t_lstiter *it, t_lst *l, t_lst_direction d)
 	it->end = d == increasing ? lst_node_front(l) : lst_node_back(l);
 	it->dir = d;
 	it->flag = 0;
+	it->lst = l;
 }
