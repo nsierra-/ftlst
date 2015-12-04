@@ -1,5 +1,5 @@
 # ftlst
-Simple tools around a generic doubly linked list written in ANSI C.
+Simple library around a doubly linked list written in ANSI C.
 
 # How to use it ?
 Clone this repo and simply use `make`. This will produce a static library file which you can now link using `-Lftlst_directory -lftlst`
