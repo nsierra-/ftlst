@@ -6,7 +6,7 @@
 #    By: nsierra- <nsierra-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/22 19:54:32 by nsierra-          #+#    #+#              #
-#    Updated: 2015/04/16 06:57:17 by cfernand         ###   ########.fr        #
+#    Updated: 2015/12/04 17:07:36 by nsierra-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ LIBFT_DIR =	../libft
 
 CC = 		gcc
 
-CFLAGS = 	-pedantic -Wall -Wextra -Werror -O2 -I$(LIBFT_DIR)
+CFLAGS = 	-pedantic -ansi -Wall -Wextra -Werror -O2 -I$(LIBFT_DIR)
 
 all: $(NAME)
 
