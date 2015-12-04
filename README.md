@@ -1,14 +1,8 @@
 # ftlst
 Simple tools around a generic doubly linked list written in ANSI C.
 
-# Install
-It's pretty obvious :
-```sh
-cd yourproject
-git clone https://github.com/nsierra-/ftlst.git
-make -C ftlst
-gcc yourprojectfiles -L./ftlst -lftlst
-```
+# How to use it ?
+Clone this repo and simply use `make`. This will produce a static library file which you can now link using `-Lftlst_directory -lftlst`
 
 # Usage
 See `ftlst.h` for full documentation.
